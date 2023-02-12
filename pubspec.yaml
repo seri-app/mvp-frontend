@@ -1,0 +1,40 @@
+name: namer_app
+description: A new Flutter project.
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 0.0.1+1
+
+environment:
+  sdk: ">=2.18.4 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  english_words: ^4.0.0
+  provider: ^6.0.0
+  font_awesome_flutter: ^10.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/1.png
+    - assets/images/2.png
+    - assets/images/3.png
+    - assets/images/menus/ic_search_menu.png
+    - assets/images/menus/ic_account.png
+    - assets/images/menus/ic_cart.png
+    - assets/images/menus/ic_home.png
+    - assets/images/menus/ic_delete.png
+    - assets/images/menus/ic_near_by.png
+    - assets/images/menus/ic_credit_card.png
+    - assets/images/menus/ic_app_icon.png
+    - assets/images/menus/ic_food_express.png
+    - assets/images/menus/ic_app_icon_black.png
