@@ -1,6 +1,6 @@
-# flutter_application_1
+# Seri
 
-A new Flutter project.
+Seri
 
 ## Getting Started
 
