@@ -28,6 +28,7 @@ flutter:
     - assets/images/1.png
     - assets/images/2.png
     - assets/images/3.png
+    - assets/images/logos/primary.png
     - assets/images/menus/ic_search_menu.png
     - assets/images/menus/ic_account.png
     - assets/images/menus/ic_cart.png
