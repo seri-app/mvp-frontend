@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:namer_app/animation/ScaleRoute.dart';
 import 'package:namer_app/pages/SignInPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:namer_app/widget/PhoneNumberForm.dart';
 
 class RegistrationPage extends StatelessWidget {
   @override
@@ -20,9 +21,19 @@ class RegistrationPage extends StatelessWidget {
             flex: 2,
             // Create a list of social login buttons organized by column and centered vertically
             child: Container(
+              padding: EdgeInsets.all(50.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(
+                    'Your next repair starts here',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  PhoneNumberForm(),
                   MaterialButton(
                     color: Colors.grey[300],
                     shape: StadiumBorder(
