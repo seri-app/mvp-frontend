@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:namer_app/items.dart';
-// import 'package:namer_app/pages/SignUpPage.dart';
 import 'package:provider/provider.dart';
 
-import '../main.dart';
+// import 'SignUpPage.dart';
+// import '../shared/items.dart';
+import '../shared/app.dart';
 
 class FavoritesPage extends StatelessWidget {
   @override

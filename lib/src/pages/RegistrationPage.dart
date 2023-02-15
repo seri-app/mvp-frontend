@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/animation/ScaleRoute.dart';
-import 'package:namer_app/pages/SignInPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:namer_app/widget/PhoneNumberForm.dart';
+
+import '../shared/animation/ScaleRoute.dart';
+import 'SignInPage.dart';
+import '../shared/components/PhoneNumberForm.dart';
 
 class RegistrationPage extends StatelessWidget {
   @override
@@ -36,8 +37,7 @@ class RegistrationPage extends StatelessWidget {
                   PhoneNumberForm(),
                   MaterialButton(
                     color: Colors.grey[300],
-                    shape: StadiumBorder(
-                    ),
+                    shape: StadiumBorder(),
                     child: Container(
                       width: 300.0,
                       height: 40.0,
@@ -52,8 +52,7 @@ class RegistrationPage extends StatelessWidget {
                   SizedBox(height: 10.0),
                   MaterialButton(
                     color: Colors.grey[300],
-                    shape: StadiumBorder(
-                    ),
+                    shape: StadiumBorder(),
                     child: Container(
                       width: 300.0,
                       height: 40.0,
@@ -68,8 +67,7 @@ class RegistrationPage extends StatelessWidget {
                   SizedBox(height: 10.0),
                   MaterialButton(
                     color: Colors.grey[300],
-                    shape: StadiumBorder(
-                    ),
+                    shape: StadiumBorder(),
                     child: Container(
                       width: 300.0,
                       height: 40.0,
