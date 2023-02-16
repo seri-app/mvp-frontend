@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:namer_app/animation/ScaleRoute.dart';
-// import 'package:namer_app/pages/FoodDetailsPage.dart';
-import 'package:namer_app/pages/SignUpPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SignInPage extends StatefulWidget {
-  @override
-  _SignInPageState createState() => _SignInPageState();
-}
+import '../shared/animation/ScaleRoute.dart';
+import 'SignInPage.dart';
 
-class _SignInPageState extends State<SignInPage> {
+class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String defaultFontFamily = 'Roboto-Light.ttf';
     double defaultFontSize = 14;
-    double defaultIconSize = 17;
+    double defaultIconSize = 20;
 
     return Scaffold(
       body: Container(
@@ -40,7 +34,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ),
             Flexible(
-              flex: 8,
+              flex: 15,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -51,6 +45,64 @@ class _SignInPageState extends State<SignInPage> {
                     child: Image.asset(
                       "assets/images/menus/ic_food_express.png",
                     ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Flexible(
+                        flex: 1,
+                        child: TextField(
+                          showCursor: true,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0)),
+                              borderSide: BorderSide(
+                                width: 0,
+                                style: BorderStyle.none,
+                              ),
+                            ),
+                            filled: true,
+                            fillColor: Color(0xFFF2F3F5),
+                            hintStyle: TextStyle(
+                              color: Color(0xFF666666),
+                              fontFamily: defaultFontFamily,
+                              fontSize: defaultFontSize,
+                            ),
+                            hintText: "First Name",
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: TextField(
+                          showCursor: true,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.0)),
+                              borderSide: BorderSide(
+                                width: 0,
+                                style: BorderStyle.none,
+                              ),
+                            ),
+                            filled: true,
+                            fillColor: Color(0xFFF2F3F5),
+                            hintStyle: TextStyle(
+                              color: Color(0xFF666666),
+                              fontFamily: defaultFontFamily,
+                              fontSize: defaultFontSize,
+                            ),
+                            hintText: "Last Name",
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 15,
@@ -82,58 +134,15 @@ class _SignInPageState extends State<SignInPage> {
                   SizedBox(
                     height: 15,
                   ),
-                  TextField(
-                    showCursor: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(
-                          width: 0,
-                          style: BorderStyle.none,
-                        ),
-                      ),
-                      filled: true,
-                      prefixIcon: Icon(
-                        Icons.lock_outline,
-                        color: Color(0xFF666666),
-                        size: defaultIconSize,
-                      ),
-                      suffixIcon: Icon(
-                        Icons.remove_red_eye,
-                        color: Color(0xFF666666),
-                        size: defaultIconSize,
-                      ),
-                      fillColor: Color(0xFFF2F3F5),
-                      hintStyle: TextStyle(
-                        color: Color(0xFF666666),
-                        fontFamily: defaultFontFamily,
-                        fontSize: defaultFontSize,
-                      ),
-                      hintText: "Password",
-                    ),
-                  ),
                   SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    child: Text(
-                      "Forgot your password?",
-                      style: TextStyle(
-                        color: Color(0xFF666666),
-                        fontFamily: defaultFontFamily,
-                        fontSize: defaultFontSize,
-                        fontStyle: FontStyle.normal,
-                      ),
-                      textAlign: TextAlign.end,
-                    ),
+                    height: 10,
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   SignInButtonWidget(),
                   SizedBox(
-                    height: 2,
+                    height: 10,
                   ),
                   FacebookGoogleLogin()
                 ],
@@ -149,7 +158,7 @@ class _SignInPageState extends State<SignInPage> {
                   children: <Widget>[
                     Container(
                       child: Text(
-                        "Don't have an account? ",
+                        "Already have an account? ",
                         style: TextStyle(
                           color: Color(0xFF666666),
                           fontFamily: defaultFontFamily,
@@ -159,12 +168,12 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                     InkWell(
-                      onTap: () => {
-                      Navigator.push(context, ScaleRoute(page: SignUpPage()))
+                      onTap: () {
+                        Navigator.push(context, ScaleRoute(page: SignInPage()));
                       },
                       child: Container(
                         child: Text(
-                          "Sign Up",
+                          "Sign In",
                           style: TextStyle(
                             color: Color(0xFFf7418c),
                             fontFamily: defaultFontFamily,
@@ -200,7 +209,7 @@ class SignInButtonWidget extends StatelessWidget {
             color: Color(0xFFf7418c),
           ),
         ],
-        gradient:  LinearGradient(
+        gradient: LinearGradient(
             colors: [Color(0xFFf7418c), Color(0xFFfbab66)],
             begin: const FractionalOffset(0.2, 0.2),
             end: const FractionalOffset(1.0, 1.0),
@@ -215,7 +224,7 @@ class SignInButtonWidget extends StatelessWidget {
             padding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 42.0),
             child: Text(
-              "SIGN IN",
+              "SIGN UP",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 25.0,

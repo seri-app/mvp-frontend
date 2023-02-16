@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/items.dart';
-import 'package:namer_app/pages/RegistrationPage.dart';
-import 'package:namer_app/pages/SignUpPage.dart';
 
-import '../animation/ScaleRoute.dart';
+import '../shared/animation/ScaleRoute.dart';
+import '../shared/items.dart';
+import 'RegistrationPage.dart';
+import 'SignUpPage.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
