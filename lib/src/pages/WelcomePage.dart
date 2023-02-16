@@ -46,12 +46,6 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
                   child: Column(
                     children: <Widget>[
-                      // Text(item['header'],
-                      //     style: TextStyle(
-                      //         fontSize: 50.0,
-                      //         fontWeight: FontWeight.w300,
-                      //         color: Color(0XFF3F3D56),
-                      //         height: 2.0)),
                       Text(
                         item['description'],
                         style: TextStyle(
@@ -122,9 +116,7 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                 onTap: () {
                   // Add your code for when the text is pressed
                   print("pressed");
-                  Navigator.push(context, ScaleRoute(page: RegistrationPage())
-                      // MaterialPageRoute(builder: (context) => SignUpPage()),
-                      );
+                  Navigator.push(context, ScaleRoute(page: RegistrationPage()));
                 },
                 child: IgnorePointer(
                   child: Text('skip',
