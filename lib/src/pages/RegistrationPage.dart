@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../shared/animation/ScaleRoute.dart';
-import 'SignInPage.dart';
 import '../shared/components/PhoneNumberForm.dart';
 
 class RegistrationPage extends StatelessWidget {
