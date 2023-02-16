@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../shared/animation/ScaleRoute.dart';
 import '../shared/items.dart';
 import 'RegistrationPage.dart';
-import 'SignUpPage.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
