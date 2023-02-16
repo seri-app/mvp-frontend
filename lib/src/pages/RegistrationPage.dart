@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../shared/animation/ScaleRoute.dart';
-import '../shared/components/PhoneNumberForm.dart';
+import '../shared/components/LogInForm.dart';
 
 class RegistrationPage extends StatelessWidget {
   @override
