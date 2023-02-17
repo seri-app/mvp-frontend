@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../pages/TestAPIPage.dart';
+
 class LogInForm extends StatefulWidget {
   @override
   bool phone = true;
@@ -15,10 +17,10 @@ class _LogInFormState extends State<LogInForm> {
 
   void _continueButtonPressed() {
     if (_formKey.currentState!.validate()) {
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => const EmailForm()),
-      // );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const TestAPIPage()),
+      );
       _formKey.currentState?.save();
       print('Phone number is: $_phoneNumber');
     }
