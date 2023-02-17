@@ -31,7 +31,7 @@ class RegistrationPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10.0),
-                  PhoneNumberForm(),
+                  LogInForm(),
                   MaterialButton(
                     color: Colors.grey[300],
                     shape: StadiumBorder(),

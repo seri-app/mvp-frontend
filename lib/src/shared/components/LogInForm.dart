@@ -1,18 +1,52 @@
 import 'package:flutter/material.dart';
 
-class PhoneNumberForm extends StatefulWidget {
+class LogInForm extends StatefulWidget {
   @override
-  _PhoneNumberFormState createState() => _PhoneNumberFormState();
+  bool phone = true;
+  _LogInFormState createState() => _LogInFormState();
 }
 
-class _PhoneNumberFormState extends State<PhoneNumberForm> {
+class _LogInFormState extends State<LogInForm> {
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
+
+  bool _phone = true;
+  String _text = 'Use Email Instead';
+  String _hintText = 'Phone number';
   final _formKey = GlobalKey<FormState>();
   String _phoneNumber = '';
 
   void _continueButtonPressed() {
     if (_formKey.currentState!.validate()) {
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => const EmailForm()),
+      // );
       // Do something with the phone number
+      _formKey.currentState?.save();
       print('Phone number is: $_phoneNumber');
+    }
+  }
+
+  String? validateForm(String? value) {
+    if (_phone) {
+      if (value!.length < 8) {
+        return 'Number too short';
+      } else if (value.length > 12) {
+        return 'Number too long';
+      } else {
+        return null;
+      }
+    } else {
+      RegExp regex = RegExp(
+          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+      if (!regex.hasMatch(value!)) {
+        return 'Enter Valid Email';
+      } else {
+        return null;
+      }
     }
   }
 
@@ -25,20 +59,32 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
         children: <Widget>[
           TextFormField(
             decoration: InputDecoration(
-              hintText: 'Phone number',
+              hintText: _hintText,
             ),
             keyboardType: TextInputType.phone,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a phone number';
-              }
-              return null;
-            },
+            validator: validateForm,
             onSaved: (value) {
               _phoneNumber = value!;
             },
           ),
-          SizedBox(height: 16.0),
+          SizedBox(height: 10.0),
+          TextButton(
+            onPressed: () => setState(() {
+              if (_phone) {
+                _text = 'Use Email Instead';
+                _hintText = 'Email';
+                _phone = false;
+              } else {
+                _text = 'Use Phone Number Instead';
+                _hintText = 'Phone number';
+                _phone = true;
+              }
+            }),
+            child: Text(
+              _text,
+              style: TextStyle(color: Colors.grey, fontSize: 15),
+            ),
+          ),
           ElevatedButton(
             onPressed: _continueButtonPressed,
             child: Text('Continue'),
@@ -48,3 +94,24 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
     );
   }
 }
+
+// class EmailForm extends StatelessWidget {
+//   const EmailForm({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Second Route'),
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           onPressed: () {
+//             Navigator.pop(context);
+//           },
+//           child: const Text('Go back!'),
+//         ),
+//       ),
+//     );
+//   }
+// }
