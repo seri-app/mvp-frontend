@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../shared/animation/ScaleRoute.dart';
-import '../shared/components/PhoneNumberForm.dart';
+import '../shared/components/LogInForm.dart';
 
 class RegistrationPage extends StatelessWidget {
   @override
@@ -31,7 +31,7 @@ class RegistrationPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10.0),
-                  PhoneNumberForm(),
+                  LogInForm(),
                   MaterialButton(
                     color: Colors.grey[300],
                     shape: StadiumBorder(),
