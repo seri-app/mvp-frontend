@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../shared/animation/ScaleRoute.dart';
-import '../shared/items.dart';
+import '../shared/constants/items.dart';
 import 'RegistrationPage.dart';
 
 class WelcomeScreen extends StatefulWidget {
