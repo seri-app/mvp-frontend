@@ -23,6 +23,7 @@ class _LogInFormState extends State<LogInForm> {
       );
       _formKey.currentState?.save();
       print('Phone number is: $_phoneNumber');
+      print('lol');
     }
   }
 
