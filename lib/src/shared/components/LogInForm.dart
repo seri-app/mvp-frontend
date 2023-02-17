@@ -7,11 +7,6 @@ class LogInForm extends StatefulWidget {
 }
 
 class _LogInFormState extends State<LogInForm> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  // }
-
   bool _phone = true;
   String _text = 'Use Email Instead';
   String _hintText = 'Phone number';
@@ -24,7 +19,6 @@ class _LogInFormState extends State<LogInForm> {
       //   context,
       //   MaterialPageRoute(builder: (context) => const EmailForm()),
       // );
-      // Do something with the phone number
       _formKey.currentState?.save();
       print('Phone number is: $_phoneNumber');
     }
@@ -95,23 +89,3 @@ class _LogInFormState extends State<LogInForm> {
   }
 }
 
-// class EmailForm extends StatelessWidget {
-//   const EmailForm({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Second Route'),
-//       ),
-//       body: Center(
-//         child: ElevatedButton(
-//           onPressed: () {
-//             Navigator.pop(context);
-//           },
-//           child: const Text('Go back!'),
-//         ),
-//       ),
-//     );
-//   }
-// }
