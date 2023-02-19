@@ -90,4 +90,3 @@ class _LogInFormState extends State<LogInForm> {
     );
   }
 }
-
