@@ -24,11 +24,8 @@ class RegistrationPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Your next repair starts here',
-                    style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.w300,
-                    ),
+                    'Your next repair starts here.',
+                    style: Theme.of(context).textTheme.displayLarge, //use the theme defined in app.dart
                   ),
                   SizedBox(height: 10.0),
                   LogInForm(),

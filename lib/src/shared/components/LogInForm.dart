@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../pages/TestAPIPage.dart';
+import '../providers/color_schemes.dart';
 
 class LogInForm extends StatefulWidget {
   @override
@@ -86,8 +87,10 @@ class _LogInFormState extends State<LogInForm> {
             ),
           ),
           FilledButton.tonal(
-            onPressed: _continueButtonPressed,
+            onPressed: _continueButtonPressed,          
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor)),
             child: Text(_buttonText),
+            // ButtonStyle: color: Colors.primary
           )
           // ElevatedButton(
           //   onPressed: _continueButtonPressed,
