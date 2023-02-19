@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../pages/TestAPIPage.dart';
+import '../providers/color_schemes.dart';
 
 class LogInForm extends StatefulWidget {
   @override
@@ -10,7 +11,8 @@ class LogInForm extends StatefulWidget {
 
 class _LogInFormState extends State<LogInForm> {
   bool _phone = true;
-  String _text = 'Use Email Instead';
+  String _text = 'Use Email Instead.';
+  String _buttonText = 'Continue with Phone Number ->';
   String _hintText = 'Phone number';
   final _formKey = GlobalKey<FormState>();
   String _phoneNumber = '';
@@ -23,6 +25,7 @@ class _LogInFormState extends State<LogInForm> {
       );
       _formKey.currentState?.save();
       print('Phone number is: $_phoneNumber');
+      print('lol');
     }
   }
 
@@ -55,6 +58,8 @@ class _LogInFormState extends State<LogInForm> {
         children: <Widget>[
           TextFormField(
             decoration: InputDecoration(
+              labelText: _hintText,
+              border: OutlineInputBorder(),
               hintText: _hintText,
             ),
             keyboardType: TextInputType.phone,
@@ -63,31 +68,42 @@ class _LogInFormState extends State<LogInForm> {
               _phoneNumber = value!;
             },
           ),
-          SizedBox(height: 10.0),
           TextButton(
             onPressed: () => setState(() {
               if (_phone) {
-                _text = 'Use Email Instead';
+                _text = 'Use Phone Number Instead.';
                 _hintText = 'Email';
+                _buttonText = 'Continue with Email ->';
                 _phone = false;
               } else {
-                _text = 'Use Phone Number Instead';
+                _text = 'Use Email Instead.';
                 _hintText = 'Phone number';
+                _buttonText = 'Continue with Phone ->';
                 _phone = true;
               }
             }),
             child: Text(
               _text,
-              style: TextStyle(color: Colors.grey, fontSize: 15),
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
-          ElevatedButton(
-            onPressed: _continueButtonPressed,
-            child: Text('Continue'),
-          ),
+          SizedBox(
+            // widthFactor: 5.0,
+            width: 400.0,
+            child: FilledButton.tonal(
+              onPressed: _continueButtonPressed,
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).primaryColor)),
+              child: Text(_buttonText,
+                  style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFFFFFFF))),
+            ),
+          )
         ],
       ),
     );
   }
 }
-
