@@ -11,7 +11,7 @@ class LogInForm extends StatefulWidget {
 
 class _LogInFormState extends State<LogInForm> {
   bool _phone = true;
-  String _text = 'Use Email Instead';
+  String _text = 'Use Email Instead.';
   String _buttonText = 'Continue with Phone Number ->';
   String _hintText = 'Phone number';
   final _formKey = GlobalKey<FormState>();
@@ -58,6 +58,8 @@ class _LogInFormState extends State<LogInForm> {
         children: <Widget>[
           TextFormField(
             decoration: InputDecoration(
+              labelText: _hintText,
+              border: OutlineInputBorder(),
               hintText: _hintText,
             ),
             keyboardType: TextInputType.phone,
@@ -66,16 +68,15 @@ class _LogInFormState extends State<LogInForm> {
               _phoneNumber = value!;
             },
           ),
-          SizedBox(height: 10.0),
           TextButton(
             onPressed: () => setState(() {
               if (_phone) {
-                _text = 'Use Email Instead';
+                _text = 'Use Email Instead.';
                 _hintText = 'Email';
                 _buttonText = 'Continue with Email ->';
                 _phone = false;
               } else {
-                _text = 'Use Phone Number Instead';
+                _text = 'Use Phone Number Instead.';
                 _hintText = 'Phone number';
                 _buttonText = 'Continue with Phone ->';
                 _phone = true;
@@ -83,19 +84,22 @@ class _LogInFormState extends State<LogInForm> {
             }),
             child: Text(
               _text,
-              style: TextStyle(color: Colors.grey, fontSize: 15),
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
-          FilledButton.tonal(
-            onPressed: _continueButtonPressed,          
-            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor)),
-            child: Text(_buttonText),
-            // ButtonStyle: color: Colors.primary
+          SizedBox(
+            // widthFactor: 5.0,
+            width: 400.0,
+            child: FilledButton.tonal(
+              onPressed: _continueButtonPressed,
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).primaryColor)
+                    ),
+                  
+              child: Text(_buttonText),
+            ),
           )
-          // ElevatedButton(
-          //   onPressed: _continueButtonPressed,
-          //   child: Text('Continue'),
-          // ),
         ],
       ),
     );
