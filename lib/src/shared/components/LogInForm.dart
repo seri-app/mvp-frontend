@@ -94,10 +94,12 @@ class _LogInFormState extends State<LogInForm> {
               onPressed: _continueButtonPressed,
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(
-                      Theme.of(context).primaryColor)
-                    ),
-                  
-              child: Text(_buttonText),
+                      Theme.of(context).primaryColor)),
+              child: Text(_buttonText,
+                  style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFFFFFFF))),
             ),
           )
         ],
