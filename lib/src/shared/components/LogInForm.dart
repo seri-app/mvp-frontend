@@ -11,6 +11,7 @@ class LogInForm extends StatefulWidget {
 class _LogInFormState extends State<LogInForm> {
   bool _phone = true;
   String _text = 'Use Email Instead';
+  String _buttonText = 'Continue with Phone Number ->';
   String _hintText = 'Phone number';
   final _formKey = GlobalKey<FormState>();
   String _phoneNumber = '';
@@ -70,10 +71,12 @@ class _LogInFormState extends State<LogInForm> {
               if (_phone) {
                 _text = 'Use Email Instead';
                 _hintText = 'Email';
+                _buttonText = 'Continue with Email ->';
                 _phone = false;
               } else {
                 _text = 'Use Phone Number Instead';
                 _hintText = 'Phone number';
+                _buttonText = 'Continue with Phone ->';
                 _phone = true;
               }
             }),
@@ -82,13 +85,16 @@ class _LogInFormState extends State<LogInForm> {
               style: TextStyle(color: Colors.grey, fontSize: 15),
             ),
           ),
-          ElevatedButton(
+          FilledButton.tonal(
             onPressed: _continueButtonPressed,
-            child: Text('Continue'),
-          ),
+            child: Text(_buttonText),
+          )
+          // ElevatedButton(
+          //   onPressed: _continueButtonPressed,
+          //   child: Text('Continue'),
+          // ),
         ],
       ),
     );
   }
 }
-
