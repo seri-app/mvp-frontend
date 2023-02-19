@@ -10,9 +10,11 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreen extends State<WelcomeScreen> {
+  int _curIndex = 0;
+
   List<Widget> slides = items
       .map((item) => Container(
-          padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 12.0),
+          padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 25.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -21,29 +23,29 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                   fit: FlexFit.tight,
                   child: item['index'] == 0
                       ? Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Image.asset(
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Image.asset(
                             item['logo'],
                             fit: BoxFit.fitWidth,
                             width: 100.0,
                             alignment: Alignment.bottomCenter,
                           ),
-                      )
+                        )
                       :
                       //Align text to bottom of flex box
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              item['header'],
-                              style: TextStyle(
-                                  fontSize: 32.0,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: 'Glacial Indifference',
-                                  color: Color.fromRGBO(0, 0, 0, 1)),
-                            )),
-                      )),
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                item['header'],
+                                style: TextStyle(
+                                    fontSize: 32.0,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Glacial Indifference',
+                                    color: Color.fromRGBO(0, 0, 0, 1)),
+                              )),
+                        )),
               SizedBox(height: 100),
               Flexible(
                 flex: 2,
@@ -57,7 +59,8 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(vertical:30.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 30.0),
                                   child: Row(
                                     children: [
                                       RawMaterialButton(
@@ -86,7 +89,8 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(vertical:30.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 30.0),
                                   child: Row(
                                     children: [
                                       RawMaterialButton(
@@ -115,7 +119,8 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(vertical:30.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 30.0),
                                   child: Row(
                                     children: [
                                       RawMaterialButton(
@@ -192,6 +197,7 @@ class _WelcomeScreen extends State<WelcomeScreen> {
               itemBuilder: (BuildContext context, int index) {
                 _pageViewController.addListener(() {
                   setState(() {
+                    _curIndex = index;
                     currentPage = _pageViewController.page!;
                   });
                 });
@@ -203,10 +209,23 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                 child: Container(
                   margin: EdgeInsets.only(top: 70.0),
                   padding: EdgeInsets.symmetric(vertical: 40.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: indicator(),
-                  ),
+                  child: _curIndex == 2
+                      ? FilledButton.tonal(
+                          onPressed: () => Navigator.push(
+                              context, ScaleRoute(page: RegistrationPage())),
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Theme.of(context).primaryColor)),
+                          child: Text('Join Now',
+                              style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFFFFFFFF))),
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: indicator(),
+                        ),
                 )),
             Positioned(
               top: 60.0,
@@ -214,7 +233,7 @@ class _WelcomeScreen extends State<WelcomeScreen> {
               child: InkWell(
                 onTap: () {
                   // Add your code for when the text is pressed
-                  print("pressed");
+                  // print("pressed");
                   Navigator.push(context, ScaleRoute(page: RegistrationPage()));
                 },
                 child: IgnorePointer(
