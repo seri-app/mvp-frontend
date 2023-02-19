@@ -71,12 +71,12 @@ class _LogInFormState extends State<LogInForm> {
           TextButton(
             onPressed: () => setState(() {
               if (_phone) {
-                _text = 'Use Email Instead.';
+                _text = 'Use Phone Number Instead.';
                 _hintText = 'Email';
                 _buttonText = 'Continue with Email ->';
                 _phone = false;
               } else {
-                _text = 'Use Phone Number Instead.';
+                _text = 'Use Email Instead.';
                 _hintText = 'Phone number';
                 _buttonText = 'Continue with Phone ->';
                 _phone = true;
